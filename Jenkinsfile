@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     echo "Compiling Java program..."
-                    bat 'javac TimestampPrinter.java'
+                    bat '"C:\\Windows\\System32\\cmd.exe" /c javac TimestampPrinter.java'
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     echo "Running Java program..."
-                    bat 'java TimestampPrinter'
+                    bat '"C:\\Windows\\System32\\cmd.exe" /c java TimestampPrinter'
                 }
             }
         }
