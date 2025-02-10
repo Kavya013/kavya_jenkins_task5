@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        JAVA_HOME = "C:\\Program Files\\Java\\jdk-17"
+        PATH = "${JAVA_HOME}\\bin;${env.PATH}"
+    }
+
     stages {
         stage('Clone Repository') {
             steps {
@@ -12,7 +17,7 @@ pipeline {
             steps {
                 script {
                     echo "Compiling Java program..."
-                    bat '"C:\\Program Files\\Java\\jdk-17\\bin\\javac" TimestampPrinter.java'
+                    bat 'javac TimestampPrinter.java'
                 }
             }
         }
@@ -21,7 +26,7 @@ pipeline {
             steps {
                 script {
                     echo "Running Java program..."
-                    bat '"C:\\Program Files\\Java\\jdk-17\\bin\\java" TimestampPrinter'
+                    bat 'java TimestampPrinter'
                 }
             }
         }
